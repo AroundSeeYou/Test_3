@@ -45,7 +45,7 @@ public class TestServlet extends HttpServlet {
 		request.setAttribute("email", email);*/
 		//request.setAttribute("username", username);
 		Cookie cookie= new Cookie("username", username);
-		cookie.setMaxAge(3600);
+		cookie.setMaxAge(0);
 		response.addCookie(cookie);
 		
 		//request.getRequestDispatcher("IndexServlet").forward(request, response);
