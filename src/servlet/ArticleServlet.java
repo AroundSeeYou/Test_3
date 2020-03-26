@@ -40,7 +40,7 @@ public class ArticleServlet extends HttpServlet {
 		list4.add(d);	
 	}
 	public static void Update(String a,String b,String c,String d) {
-		
+		System.out.println(a);
 		int len = list1.size();
 		for(int i=0;i<len;i++) {
 			if((list1.get(i)).equals(a)) {

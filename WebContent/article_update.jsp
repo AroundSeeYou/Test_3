@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="UpdateServlet" method="get">
-		<p>ID：<input id='input1' type="text" name="id"  value=<%=request.getParameter("id")%>></p><br>
+		<p>ID：<input id='input1' type="text" name="id" readonly="true" value=<%=request.getParameter("id")%>></p><br>
 		<p>content：<input  id='input1' type="text" name="content"   value=<%=request.getParameter("content")%>></p><br>
 		<p>postTime：<input  type="text" name="postTime"  value=<%=request.getParameter("postTime") %>></p><br>
 		<p>IP：<input  id='input1' type="email" name="ip"   value=<%=request.getParameter("ip") %>></p><br>
