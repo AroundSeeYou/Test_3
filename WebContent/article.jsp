@@ -22,17 +22,14 @@
 			<td>操作</td>
 		</tr>
 		<% 
-	   
 		if(request.getAttribute("len")!=null){
 			 ArrayList list = (ArrayList)request.getAttribute("id"); 
 			 ArrayList list1 = (ArrayList)request.getAttribute("content"); 
 			 ArrayList list2 = (ArrayList)request.getAttribute("postTime"); 
 			 ArrayList list3 = (ArrayList)request.getAttribute("ip"); 
 			int len = (int)request.getAttribute("len");
-		for(int i=0;i<len;i++){
-			
+		for(int i=0;i<len;i++){	
 		%>	
-      
       <tr  height="30" align="center">
            <td><%=list.get(i)%></td>
            <td><%=list1.get(i) %></td>
@@ -41,9 +38,6 @@
            <td><a href="article_update.jsp?id=<%=list.get(i) %>&content=<%=list1.get(i) %>&postTime=<%=list2.get(i)%>&ip=<%=list3.get(i)%>">编辑</a>
            <a href="DeleteServlet?id=<%=list.get(i)%>">删除</a></td>
        </tr>
-
-
-       
      <%}} %>
 
 
