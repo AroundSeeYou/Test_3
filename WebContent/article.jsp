@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="java.util.*"
+    import="servlet.Article"
     %>
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@
  	
 
 	<a href="article_add.jsp">添加</a>
-	<table border="1" cellspacing="0"  width="700px">
+	<table border="1" cellspacing="0"  width="700px" bgcolor="#ff8c00">
 		<tr height="30" align="center" background="#0f0">
 			<td>ID</td>
 			<td>content</td>
@@ -23,20 +24,17 @@
 		</tr>
 		<% 
 		if(request.getAttribute("len")!=null){
-			 ArrayList list = (ArrayList)request.getAttribute("id"); 
-			 ArrayList list1 = (ArrayList)request.getAttribute("content"); 
-			 ArrayList list2 = (ArrayList)request.getAttribute("postTime"); 
-			 ArrayList list3 = (ArrayList)request.getAttribute("ip"); 
+			 ArrayList<Article> list = (ArrayList)request.getAttribute("article"); 
 			int len = (int)request.getAttribute("len");
 		for(int i=0;i<len;i++){	
 		%>	
-      <tr  height="30" align="center">
-           <td><%=list.get(i)%></td>
-           <td><%=list1.get(i) %></td>
-           <td><%=list2.get(i)%></td>
-            <td><%=list3.get(i)%></td>
-           <td><a href="article_update.jsp?id=<%=list.get(i) %>&content=<%=list1.get(i) %>&postTime=<%=list2.get(i)%>&ip=<%=list3.get(i)%>">编辑</a>
-           <a href="DeleteServlet?id=<%=list.get(i)%>">删除</a></td>
+      <tr  height="30" align="centesr" bgcolor="#ff0">
+           <td><%=list.get(i).getId()%></td>
+           <td><%=list.get(i).getContent() %></td>
+           <td><%=list.get(i).getPostTime()%></td>
+            <td><%=list.get(i).getIp()%></td>
+           <td><a href="article_update.jsp?id=<%=list.get(i).getId() %>&content=<%=list.get(i).getContent() %>&postTime=<%=list.get(i).getPostTime()%>&ip=<%=list.get(i).getIp()%>">编辑</a>
+           <a href="DeleteServlet?id=<%=list.get(i).getId()%>">删除</a></td>
        </tr>
      <%}} %>
 
