@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="UpdateServlet" method="get">
+<form action="UpdateServlet" method="post">
 		<p>ID：<input id='input1' type="text" name="id" readonly="true" value=<%=request.getParameter("id")%>></p><br>
 		<p>content：<input  id='input1' type="text" name="content"   value=<%=request.getParameter("content")%>></p><br>
 		<p>postTime：<input  type="text" name="postTime"  readonly="true" value=<%=request.getParameter("postTime") %>></p><br>

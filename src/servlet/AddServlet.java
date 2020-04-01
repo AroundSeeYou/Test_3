@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+
 import java.net.Inet4Address;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.jasper.tagplugins.jstl.core.Remove;
 
+import list.articleList;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Iterator;
@@ -26,8 +29,16 @@ import java.net.UnknownHostException;
  */
 @WebServlet("/AddServlet")
 public class AddServlet extends HttpServlet {
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		
+		request.getRequestDispatcher("article_add.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
@@ -39,18 +50,11 @@ public class AddServlet extends HttpServlet {
 		String content = request.getParameter("content");
 		String postTime =datef.format(date);
 		String ip =ip4.getHostAddress();
-		ArticleServlet a=new ArticleServlet();
-		a.Add(id, content, postTime, ip);
+		//ArticleServlet a=new ArticleServlet();
+		//ArticleServlet.Add(id, content, postTime, ip);
+		Article article=new Article(id,content,postTime,ip);
+		articleList.Add(article);
 		response.sendRedirect("ArticleServlet");//重定向
-		//request.getRequestDispatcher("ArticleServlet").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

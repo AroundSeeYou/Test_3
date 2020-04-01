@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="AddServlet" method="">
+	<form action="AddServlet" method="post">
 		<p>ID：<input id='input1' type="text" name="id"></p><br>
 		<p>content：<input  id='input1' type="text" name="content"></p><br>
 		<p>postTime：<input readonly="true" type="text" name="postTime" ></p><br>

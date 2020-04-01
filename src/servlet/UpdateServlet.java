@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import list.articleList;
+
 /**
  * Servlet implementation class UpdateServlet
  */
@@ -24,6 +26,15 @@ public class UpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.getRequestDispatcher("article_update.jsp").forward(request, response);
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		/*获取时间*/
 		Date date= new Date(System.currentTimeMillis());
 		SimpleDateFormat datef= new SimpleDateFormat("yyyy/MM/dd-hh:mm:ss");
@@ -34,18 +45,9 @@ public class UpdateServlet extends HttpServlet {
 		String content = request.getParameter("content");
 		String postTime =datef.format(date);
 		String ip =ip4.getHostAddress();
-		ArticleServlet  add=new ArticleServlet();
-		add.Update(id,content,postTime,ip);
+		Article article=new Article(id,content,postTime,ip);
+		articleList.Update(article);
 		response.sendRedirect("ArticleServlet");//重定向
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
